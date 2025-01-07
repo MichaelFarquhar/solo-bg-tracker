@@ -3,12 +3,16 @@ import { Image, StyleSheet, Platform, ScrollView, FlatList } from "react-native"
 import { HelloWave } from "@/components/HelloWave";
 import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
-import { Button, FAB, SearchBar } from "@rneui/themed";
+import { Button, FAB } from "@rneui/themed";
 import { BaseAppbar } from "@/components/appbars/BaseAppbar";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Octicons } from "@expo/vector-icons";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { GameItem } from "@/components/GameItem/GameItem";
+import { SearchBar } from "@/components/search/SearchBar";
+import { useAtomValue } from "jotai";
+import { searchAtom } from "@/atoms/searchAtom";
+import { SearchResultsText } from "@/components/search/SearchResultsText";
 
 export interface GameListItem {
   id: number;
@@ -57,14 +61,19 @@ const listData: GameListItem[] = [
 ];
 
 export default function HomeScreen() {
-  const [search, setSearch] = useState("");
+  const search = useAtomValue(searchAtom);
   const [data] = useState(listData);
   const [filteredData, setFilteredData] = useState(listData);
 
-  const updateSearch = (searchText: string) => {
-    setSearch(searchText);
-    setFilteredData(data.filter((item) => item.title.includes(searchText)));
-  };
+  useEffect(() => {
+    if (search.trim() === "") {
+      setFilteredData(data);
+    } else {
+      setFilteredData(
+        data.filter((item) => item.title.toLowerCase().includes(search.toLowerCase()))
+      );
+    }
+  }, [search, data]);
 
   return (
     <SafeAreaView>
@@ -74,8 +83,11 @@ export default function HomeScreen() {
         rightAction={<Octicons name="diff-added" size={24} />}
       />
       <FAB icon={{ name: "add", color: "white" }} color="green" placement="right" />
-      <SearchBar placeholder="Search games" onChangeText={updateSearch} value={search} />
-      <ThemedText>Search Result: {search}</ThemedText>
+
+      {/* Search Bar and Search Results Text */}
+      <SearchBar placeholder="Search games" />
+      <SearchResultsText searchText={search} searchData={filteredData} />
+
       <FlatList
         data={filteredData}
         renderItem={({ item, index }) => <GameItem gameData={item} key={index} />}
@@ -122,6 +134,9 @@ export default function HomeScreen() {
 }
 
 const styles = StyleSheet.create({
+  searchSection: {
+    marginBottom: 24,
+  },
   titleContainer: {
     flexDirection: "row",
     alignItems: "center",

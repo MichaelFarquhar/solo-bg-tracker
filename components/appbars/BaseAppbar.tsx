@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     paddingHorizontal: 24,
     paddingVertical: 18,
-    marginBottom: 24,
+    marginBottom: 18,
     width: "100%",
     backgroundColor: "white",
     position: "sticky",
