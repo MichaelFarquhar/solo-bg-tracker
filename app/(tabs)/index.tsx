@@ -9,6 +9,7 @@ import { SearchBar } from "@/components/search/SearchBar";
 import { useAtomValue } from "jotai";
 import { searchAtom } from "@/atoms/searchAtom";
 import { SearchResultsText } from "@/components/search/SearchResultsText";
+import { Link } from "expo-router";
 
 export interface GameListItem {
   id: number;
@@ -76,7 +77,11 @@ export default function HomeScreen() {
       <BaseAppbar
         leftAction={<Octicons name="home" size={24} />}
         title="Title"
-        rightAction={<Octicons name="diff-added" size={24} />}
+        rightAction={
+          <Link href="/games/new">
+            <Octicons name="diff-added" size={24} />
+          </Link>
+        }
       />
 
       {/* Search Bar and Search Results Text */}
@@ -90,9 +95,3 @@ export default function HomeScreen() {
     </SafeAreaView>
   );
 }
-
-const styles = StyleSheet.create({
-  searchSection: {
-    marginBottom: 24,
-  },
-});
