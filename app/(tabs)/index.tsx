@@ -1,15 +1,12 @@
 import { StyleSheet, FlatList } from "react-native";
 
-import { BaseAppbar } from "@/components/appbars/BaseAppbar";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { Octicons } from "@expo/vector-icons";
 import { useEffect, useState } from "react";
 import { GameItem } from "@/components/GameItem/GameItem";
 import { SearchBar } from "@/components/search/SearchBar";
 import { useAtomValue } from "jotai";
 import { searchAtom } from "@/atoms/searchAtom";
 import { SearchResultsText } from "@/components/search/SearchResultsText";
-import { Link } from "expo-router";
 
 export interface GameListItem {
   id: number;
@@ -74,16 +71,6 @@ export default function HomeScreen() {
 
   return (
     <SafeAreaView>
-      <BaseAppbar
-        leftAction={<Octicons name="home" size={24} />}
-        title="Title"
-        rightAction={
-          <Link href="/games/new">
-            <Octicons name="diff-added" size={24} />
-          </Link>
-        }
-      />
-
       {/* Search Bar and Search Results Text */}
       <SearchBar placeholder="Search games" />
       <SearchResultsText searchText={search} searchData={filteredData} />

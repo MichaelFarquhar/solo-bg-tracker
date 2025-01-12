@@ -1,4 +1,3 @@
-import { BaseAppbar } from "@/components/appbars/BaseAppbar";
 import { Button } from "@/components/Button";
 import { BGGIcon } from "@/components/svgs/BGGIcon";
 import { Octicons } from "@expo/vector-icons";
@@ -18,11 +17,6 @@ const NewGame = ({}: Props) => {
 
   return (
     <SafeAreaView>
-      <BaseAppbar
-        leftAction={<Octicons name="arrow-left" size={24} />}
-        title="Title"
-        rightAction={<Octicons name="check-circle" size={24} color={"#22c55e"} />}
-      />
       <View style={styles.buttonContainer}>
         <Button
           icon={<BGGIcon width={24} height={24} fill={"white"} />}
