@@ -7,6 +7,9 @@ import { SearchBar } from "@/components/search/SearchBar";
 import { useAtomValue } from "jotai";
 import { searchAtom } from "@/atoms/searchAtom";
 import { SearchResultsText } from "@/components/search/SearchResultsText";
+import { FAB } from "@/components/FAB";
+import { Ionicons } from "@expo/vector-icons";
+import { router, useNavigation } from "expo-router";
 
 export interface GameListItem {
   id: number;
@@ -70,7 +73,7 @@ export default function HomeScreen() {
   }, [search, data]);
 
   return (
-    <SafeAreaView>
+    <SafeAreaView style={{ flex: 1 }}>
       {/* Search Bar and Search Results Text */}
       <SearchBar placeholder="Search games" />
       <SearchResultsText searchText={search} searchData={filteredData} />
@@ -78,6 +81,10 @@ export default function HomeScreen() {
       <FlatList
         data={filteredData}
         renderItem={({ item, index }) => <GameItem gameData={item} key={index} />}
+      />
+      <FAB
+        icon={<Ionicons name="add-sharp" size={24} />}
+        onPress={() => router.push("/games/new")}
       />
     </SafeAreaView>
   );

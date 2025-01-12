@@ -33,6 +33,7 @@ export default function RootLayout() {
       {/* <ThemeProvider> */}
       <Stack>
         <Stack.Screen name="(tabs)" options={{ headerShown: false, headerShadowVisible: true }} />
+        <Stack.Screen name="games" options={{ headerShown: false }} />
         <Stack.Screen name="+not-found" />
       </Stack>
       <StatusBar style="auto" backgroundColor={"transparent"} translucent />

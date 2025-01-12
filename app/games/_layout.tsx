@@ -7,6 +7,7 @@ export default function GamesLayout() {
         name="new"
         options={{
           headerTitle: "Add New Game",
+          headerBackVisible: true,
         }}
       />
     </Stack>
