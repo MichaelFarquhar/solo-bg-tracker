@@ -1,7 +1,7 @@
 import { GameListItem } from "@/app/(tabs)";
+import { Badge } from "@/components/Badge";
 import { GameItemImageBackup } from "@/components/GameItem/GameItemImageBackup";
 import { ThemedText } from "@/components/ThemedText";
-import { Badge } from "@rneui/themed";
 import { StyleSheet, View, Image } from "react-native";
 
 interface Props {
@@ -31,7 +31,7 @@ export const GameItem = ({ gameData }: Props) => {
           <ThemedText style={styles.gameDate}>Last played: {gameData.lastPlayed}</ThemedText>
         </View>
       </View>
-      <Badge value={gameData.plays} status="primary" />
+      <Badge text="gameData.plays" />
     </View>
   );
 };
