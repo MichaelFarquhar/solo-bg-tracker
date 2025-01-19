@@ -1,9 +1,9 @@
-import { Button } from "@/components/Button";
-import { FAB } from "@/components/FAB";
+import { Button } from "@/components/elements/Button";
+import { FAB } from "@/components/elements/FAB";
 import { Container } from "@/components/layout/Container";
 import { FlexView } from "@/components/layout/FlexView";
 import { Spacer } from "@/components/layout/Spacer";
-import { BGGIcon } from "@/components/svgs/BGGIcon";
+import { SVGBoardGameGeek } from "@/components/svgs/SVGBoardGameGeek";
 import { Ionicons } from "@expo/vector-icons";
 import { Image, StyleSheet, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -24,7 +24,7 @@ const NewGame = ({}: Props) => {
     <SafeAreaView style={{ flex: 1 }}>
       <Container>
         <Button
-          icon={<BGGIcon width={24} height={24} fill={"white"} />}
+          icon={<SVGBoardGameGeek width={24} height={24} fill={"white"} />}
           label="Search BoardGameGeek"
           onPress={openModal}
           style={styles.bggIconStyle}

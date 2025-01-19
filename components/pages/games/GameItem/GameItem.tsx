@@ -1,6 +1,6 @@
 import { GameListItem } from "@/app/(tabs)";
-import { Badge } from "@/components/Badge";
-import { GameItemImageBackup } from "@/components/GameItem/GameItemImageBackup";
+import { Badge } from "@/components/elements/Badge";
+import { GameItemImageBackup } from "@/components/pages/games/GameItem/GameItemImageBackup";
 import { ThemedText } from "@/components/ThemedText";
 import { StyleSheet, View, Image } from "react-native";
 

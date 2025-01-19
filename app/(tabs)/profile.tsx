@@ -2,11 +2,11 @@ import { StyleSheet, Image, Platform } from "react-native";
 
 import { ThemedText } from "@/components/ThemedText";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { AlertBox } from "@/components/AlertBox";
+import { AlertBox } from "@/components/elements/AlertBox";
 import { Spacer } from "@/components/layout/Spacer";
 import { Container } from "@/components/layout/Container";
 import { FlexView } from "@/components/layout/FlexView";
-import { Button } from "@/components/Button";
+import { Button } from "@/components/elements/Button";
 
 export default function TabFourProfile() {
   return (

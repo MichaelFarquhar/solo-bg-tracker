@@ -2,12 +2,12 @@ import { StyleSheet, FlatList } from "react-native";
 
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useEffect, useState } from "react";
-import { GameItem } from "@/components/GameItem/GameItem";
-import { SearchBar } from "@/components/search/SearchBar";
+import { GameItem } from "@/components/pages/games/GameItem/GameItem";
+import { SearchBar } from "@/components/SearchBar";
 import { useAtomValue } from "jotai";
 import { searchAtom } from "@/atoms/searchAtom";
-import { SearchResultsText } from "@/components/search/SearchResultsText";
-import { FAB } from "@/components/FAB";
+import { SearchResultsText } from "@/components/SearchResultsText";
+import { FAB } from "@/components/elements/FAB";
 import { Ionicons } from "@expo/vector-icons";
 import { router, useNavigation } from "expo-router";
 

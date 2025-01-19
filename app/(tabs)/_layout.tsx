@@ -3,11 +3,11 @@ import React from "react";
 import { Platform } from "react-native";
 
 import { HapticTab } from "@/components/HapticTab";
-import TabBarBackground from "@/components/TabBarBackground";
+import TabBarBackground from "@/components/layout/TabBarBackground";
 import { Colors } from "@/constants/Colors";
 import { useColorScheme } from "@/hooks/useColorScheme";
 import { Octicons } from "@expo/vector-icons";
-import { HeaderRightGames } from "@/components/headers/HeaderRightGames";
+import { HeaderRightGames } from "@/components/pages/_headers/HeaderRightGames";
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();

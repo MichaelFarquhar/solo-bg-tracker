@@ -10,7 +10,7 @@ import { ActivityIndicator } from "react-native";
 import { openDatabaseSync, SQLiteProvider } from "expo-sqlite";
 import { drizzle } from "drizzle-orm/expo-sqlite";
 import { useMigrations } from "drizzle-orm/expo-sqlite/migrator";
-import migrations from "../drizzle/migrations";
+import migrations from "../db/drizzle/migrations";
 import { useDrizzleStudio } from "expo-drizzle-studio-plugin";
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
